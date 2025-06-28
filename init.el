@@ -34,6 +34,9 @@
   (setq use-package-compute-statistics t)
   (require  'use-package))
 
+(use-package diminish
+  :ensure t)
+
 (use-package no-littering
   :vc (:url "https://github.com/emacscollective/no-littering" :rev :latest))
 
