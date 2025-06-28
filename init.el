@@ -249,6 +249,12 @@
 
 ;;; Settings for tracking recent files
 
+(use-package desktop
+  :custom
+  (desktop-load-locked-desktop 'check-pid)
+  (desktop-globals-to-save nil)
+  :config (desktop-save-mode 1))
+
 (use-package recentf
   :custom
   (recentf-max-saved-items 1000)
