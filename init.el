@@ -688,6 +688,10 @@
          (haskell-mode . haskell-indentation-mode)
          (haskell-mode . haskell-auto-insert-module-template)))
 
+(use-package python
+  :defer t
+  :custom (python-indent-guess-indent-offset-verbose nil))
+
 ;;; Built-in packages
 
 (use-package eldoc
