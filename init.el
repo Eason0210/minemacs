@@ -300,7 +300,10 @@
 (use-package recentf
   :custom
   (recentf-max-saved-items 1000)
-  :config (recentf-mode))
+  :config
+  (add-to-list 'recentf-exclude no-littering-var-directory)
+  (add-to-list 'recentf-exclude no-littering-etc-directory)
+  (recentf-mode))
 
 ;;; Save and restore editor sessions between restarts
 
