@@ -335,6 +335,19 @@
 
 ;;; Version control
 
+(use-package diff-hl
+  :ensure t
+  :bind (:map diff-hl-mode-map
+              ("<left-fringe> <mouse-1>" . diff-hl-diff-goto-hunk)
+              ("M-]" . diff-hl-next-hunk)
+              ("M-[" . diff-hl-previous-hunk))
+  :hook ((after-init . global-diff-hl-mode)
+         (dired-mode . diff-hl-dired-mode))
+  :commands diff-hl-magit-post-refresh
+  :config
+  (with-eval-after-load 'magit
+    (add-hook 'magit-post-refresh-hook #'diff-hl-magit-post-refresh)))
+
 (use-package magit
   :ensure t
   :bind ("C-x g" . magit-status)
