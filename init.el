@@ -34,10 +34,13 @@
   (setq use-package-compute-statistics t)
   (require  'use-package))
 
+(use-package no-littering
+  :vc (:url "https://github.com/emacscollective/no-littering" :rev :latest))
+
 (use-package custom
   :no-require t
   :config
-  (setq custom-file (locate-user-emacs-file "custom.el"))
+  (setq custom-file (no-littering-expand-etc-file-name "custom.el"))
   (when (file-exists-p custom-file)
     (load custom-file)))
 
