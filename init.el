@@ -96,6 +96,14 @@
   (isearch-allow-motion t)
   (isearch-motion-changes-direction t))
 
+;;; Configure uniquification of buffer names
+
+(use-package uniquify
+  :custom
+  (uniquify-buffer-name-style 'reverse)
+  (uniquify-separator " • ")
+  (uniquify-after-kill-buffer-p t)
+  (uniquify-ignore-buffers-re "^\\*"))
 
 ;;; Minibuffer and completion
 
