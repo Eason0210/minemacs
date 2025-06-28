@@ -889,6 +889,12 @@ typical word processor."
                                           before-user-init-time))))
             t))
 
+(progn ; personalize
+  (let ((file (expand-file-name "private.el" user-emacs-directory)))
+    (when (file-exists-p file)
+      (load file))))
+
+
 ;; Local Variables:
 ;; indent-tabs-mode: nil
 ;; no-byte-compile: nil
