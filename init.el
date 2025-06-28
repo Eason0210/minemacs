@@ -770,6 +770,27 @@
   (add-to-list 'auto-mode-alist '("\\.ts\\'" . typescript-ts-mode))
   (add-to-list 'auto-mode-alist '("\\.tsx\\'" . tsx-ts-mode))
   (add-to-list 'auto-mode-alist '("\\.ya?ml\\'" . yaml-ts-mode)))
+
+;;; Languages Server Protocol(LSP)
+
+(use-package eglot
+  :defer t
+  :bind (:map eglot-mode-map
+              ("C-c l a" . eglot-code-actions)
+              ("C-c l r" . eglot-rename)
+              ("C-c l f" . eglot-format)
+              ("C-c l d" . eldoc))
+  :custom
+  (eglot-report-progress nil)
+  (eglot-autoshutdown t)
+  (eglot-code-action-indications '(mode-line))
+  :config
+  (add-to-list 'eglot-ignored-server-capabilities
+               :documentHighlightProvider)
+  (add-to-list 'eglot-ignored-server-capabilities
+               :inlayHintProvider)
+  (add-to-list 'eglot-ignored-server-capabilities
+               :textDocument/hover))
 ;;; Built-in packages
 
 (use-package eldoc
