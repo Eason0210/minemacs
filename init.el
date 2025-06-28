@@ -677,6 +677,10 @@
   (dolist (binding '("C-<left>" "C-<right>" "M-s" "M-?"))
     (define-key paredit-mode-map (read-kbd-macro binding) nil)))
 
+(use-package aggressive-indent
+  :ensure t
+  :hook (emacs-lisp-mode . aggressive-indent-mode))
+
 ;;; Built-in packages
 
 (use-package eldoc
