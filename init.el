@@ -668,6 +668,15 @@
                (string-match-p "\\.el\\.gz\\'" (buffer-file-name)))
       (setq buffer-read-only t)
       (view-mode 1))))
+
+(use-package paredit
+  :ensure t
+  :diminish paredit-mode " Par"
+  :hook (emacs-lisp-mode . enable-paredit-mode)
+  :config
+  (dolist (binding '("C-<left>" "C-<right>" "M-s" "M-?"))
+    (define-key paredit-mode-map (read-kbd-macro binding) nil)))
+
 ;;; Built-in packages
 
 (use-package eldoc
