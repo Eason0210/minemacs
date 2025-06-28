@@ -192,6 +192,29 @@
    consult--source-recent-file consult--source-project-recent-file
    :preview-key "M-."))
 
+(use-package embark
+  :ensure t
+  :bind
+  ("C-." . embark-act)
+  ("M-." . embark-dwim)
+  ("C-h b" . embark-bindings)
+  ("C-h B" . embark-bindings-at-point)
+  ("M-n" . embark-next-symbol)
+  ("M-p" . embark-previous-symbol)
+  :custom
+  (embark-quit-after-action nil)
+  (prefix-help-command #'embark-prefix-help-command)
+  (embark-indicators '(embark-minimal-indicator
+                       embark-highlight-indicator
+                       embark-isearch-highlight-indicator))
+  (embark-cycle-key ".")
+  (embark-help-key "?")
+  :config
+  (setq embark-candidate-collectors
+        (cl-substitute 'embark-sorted-minibuffer-candidates
+                       'embark-minibuffer-candidates
+                       embark-candidate-collectors)))
+
 (use-package corfu
   :ensure t
   :custom
