@@ -387,6 +387,13 @@
   :custom (auto-revert-verbose nil)
   :config (global-auto-revert-mode))
 
+(use-package beacon
+  :vc (:url "https://github.com/Malabarba/beacon" :rev :latest)
+  :diminish
+  :custom (beacon-size 20)
+  :hook (after-init . beacon-mode)
+  :config (add-to-list 'beacon-dont-blink-commands 'pixel-scroll-precision))
+
 (use-package highlight-escape-sequences
   :ensure t
   :hook (after-init . hes-mode))
