@@ -791,6 +791,18 @@
                :inlayHintProvider)
   (add-to-list 'eglot-ignored-server-capabilities
                :textDocument/hover))
+
+(use-package eldoc-box
+  :vc (:url "https://github.com/casouri/eldoc-box" :rev :latest)
+  :bind ("C-;" . eldoc-box-help-at-point)
+  :custom-face
+  (eldoc-box-border
+   ((((class color) (min-colors 88) (background dark)) :background "#323232")
+    (((class color) (min-colors 88) (background light)) :background "#d7d7d7")
+    (t :background "gray")))
+  (eldoc-box-body ((t (:inherit (variable-pitch)))))
+  (eldoc-box-markdown-separator ((t (:inherit (fringe))))))
+
 ;;; Built-in packages
 
 (use-package eldoc
