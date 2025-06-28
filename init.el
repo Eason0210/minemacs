@@ -433,6 +433,10 @@
   (with-eval-after-load 'magit
     (add-hook 'magit-post-refresh-hook #'diff-hl-magit-post-refresh)))
 
+(use-package git-timemachine
+  :vc (:url "https://codeberg.org/pidu/git-timemachine" :rev :latest)
+  :bind ("C-x v t" . git-timemachine-toggle))
+
 (use-package magit
   :ensure t
   :bind ("C-x g" . magit-status)
