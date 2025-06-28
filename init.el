@@ -692,6 +692,13 @@
   :defer t
   :custom (python-indent-guess-indent-offset-verbose nil))
 
+(use-package rust-mode
+  :defer t
+  :custom
+  (rust-mode-treesitter-derive (and (fboundp 'treesit-available-p)
+                                    (treesit-available-p)))
+  (rust-ts-flymake-command nil))
+
 ;;; Built-in packages
 
 (use-package eldoc
