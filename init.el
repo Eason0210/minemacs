@@ -51,6 +51,17 @@
            (float-time (time-subtract (current-time)
                                       before-user-init-time))))
 
+(use-package exec-path-from-shell
+  :vc (:url "https://github.com/purcell/exec-path-from-shell" :rev :newest)
+  :when (or (memq window-system '(mac ns x))
+            (unless (memq system-type '(ms-dos windows-nt))
+              (daemonp)))
+  :custom (exec-path-from-shell-arguments '("-l"))
+  :config
+  (dolist (var '("GPG_AGENT_INFO" "LANG" "LC_CTYPE"))
+    (add-to-list 'exec-path-from-shell-variables var))
+  (exec-path-from-shell-initialize))
+
 ;;; Long tail
 
 ;; General performance tuning
