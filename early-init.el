@@ -22,11 +22,18 @@
 ;; (push '(vertical-scroll-bars) default-frame-alist)
 
 (push '(fullscreen . maximized) initial-frame-alist)
+(when (featurep 'ns)
+  (push '(ns-transparent-titlebar . t) default-frame-alist))
 
 (setq frame-title-format
       '((:eval (if (buffer-file-name)
                    (abbreviate-file-name (buffer-file-name))
                  "%b"))))
+
+;; Configure keys specific to macOS
+(when (featurep 'ns)
+  (setq ns-command-modifier 'meta)
+  (setq ns-alternate-modifier 'super))
 
 ;;; Encoding
 (set-charset-priority 'unicode)
