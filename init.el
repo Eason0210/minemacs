@@ -681,6 +681,13 @@
   :ensure t
   :hook (emacs-lisp-mode . aggressive-indent-mode))
 
+(use-package haskell-mode
+  :ensure t
+  :defer t
+  :hook ((haskell-mode . interactive-haskell-mode)
+         (haskell-mode . haskell-indentation-mode)
+         (haskell-mode . haskell-auto-insert-module-template)))
+
 ;;; Built-in packages
 
 (use-package eldoc
