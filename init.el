@@ -646,6 +646,12 @@
        (tags "CLOSED>=\"<today>\""
              ((org-agenda-overriding-header "Completed today"))))))))
 
+(use-package markdown-mode
+  :ensure t
+  :bind (:map markdown-mode-map
+              ("C-c v" . markdown-toggle-markup-hiding))
+  :mode (("\\.md\\.html\\'" . markdown-mode)
+         ("README\\.md\\'" . gfm-mode)))
 
 ;;; Programming languages support
 
