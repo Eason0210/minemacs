@@ -437,6 +437,12 @@
   :vc (:url "https://codeberg.org/pidu/git-timemachine" :rev :latest)
   :bind ("C-x v t" . git-timemachine-toggle))
 
+(use-package git-link
+  :vc (:url "https://github.com/sshaw/git-link" :rev :latest)
+  :bind (("C-c g l" . git-link)
+         ("C-c g h" . git-link-homepage)
+         ("C-c g c" . git-link-commit)))
+
 (use-package magit
   :ensure t
   :bind ("C-x g" . magit-status)
