@@ -215,6 +215,10 @@
                        'embark-minibuffer-candidates
                        embark-candidate-collectors)))
 
+(use-package embark-consult
+  :after (consult embark)
+  :ensure t)
+
 (use-package corfu
   :ensure t
   :custom
