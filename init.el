@@ -41,8 +41,12 @@
   :no-require t
   :config
   (setq custom-file (locate-user-emacs-file "custom.el"))
-  (when (file-exists-p custom-file)
-    (load custom-file)))
+  (if (file-exists-p custom-file)
+      (load custom-file)
+    (make-empty-file custom-file)))
+
+(use-package diminish
+  :ensure t)
 
 (use-package server
   :hook (after-init . (lambda ()
