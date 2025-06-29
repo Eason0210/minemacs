@@ -37,13 +37,10 @@
 (use-package diminish
   :ensure t)
 
-(use-package no-littering
-  :vc (:url "https://github.com/emacscollective/no-littering" :rev :latest))
-
 (use-package custom
   :no-require t
   :config
-  (setq custom-file (no-littering-expand-etc-file-name "custom.el"))
+  (setq custom-file (locate-user-emacs-file "custom.el"))
   (when (file-exists-p custom-file)
     (load custom-file)))
 
@@ -308,8 +305,6 @@
   :custom
   (recentf-max-saved-items 1000)
   :config
-  (add-to-list 'recentf-exclude no-littering-var-directory)
-  (add-to-list 'recentf-exclude no-littering-etc-directory)
   (recentf-mode))
 
 ;;; Save and restore editor sessions between restarts
